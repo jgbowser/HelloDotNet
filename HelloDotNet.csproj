@@ -9,5 +9,12 @@
 
   <ItemGroup>
     <PackageReference Include="Figgle" Version="0.4.0" />
+    <PackageReference Include="CommandLineParser" Version="2.9.1" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Figgle" />
+    <Using Include="System.Console" Static="True" />
+  </ItemGroup>
+  
 </Project>

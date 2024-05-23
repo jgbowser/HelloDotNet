@@ -1,9 +1,8 @@
-﻿using Figgle;
+﻿using HelloDotNet;
+using CommandLine;
 
-if (args.Length == 0)
-{
-  Console.WriteLine("Usage: HelloDotNet <text>");
-  Environment.Exit(1);
-}
-
-Console.WriteLine(FiggleFonts.Standard.Render(args[0]));
+Parser.Default
+  .ParseArguments<RenderOptions, FontListOptions>(args)
+  .WithParsed<RenderOptions>(AsciiArt.Write)
+  .WithParsed<FontListOptions>(FontList.Write)
+  .WithNotParsed(_ => WriteLine("Usage: HelloDotNet <text> --font Big"));
